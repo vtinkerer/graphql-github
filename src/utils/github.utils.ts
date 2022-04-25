@@ -10,4 +10,17 @@ export abstract class GithubUtils {
       url: commit.html_url,
     }));
   }
+
+  static checkIfHasNext(data, page): boolean {
+    const regex = /&page=(\d+)/gm;
+    const link = data.headers.link
+      .split(',')
+      .find((val) => val.includes('rel="last"'));
+
+    if (!link) return false;
+
+    let [last] = link.match(regex);
+    last = last.split('=')[1];
+    return Number(last) !== page;
+  }
 }

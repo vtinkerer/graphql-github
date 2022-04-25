@@ -29,6 +29,11 @@ type CommitInfo {
   url: String!
 }
 
+type CommitsInfoResponse {
+  commits: [CommitInfo!]!
+  hasNext: Boolean!
+}
+
 type HelloWorldResponse {
   message: String!
 }
@@ -36,7 +41,7 @@ type HelloWorldResponse {
 type Query {
   helloWorld: HelloWorldResponse!
   authData(getApiKeyUserInput: GetApiKeyUserInput!): ApiKey!
-  commits(per_page: Int!, page: Int!): [CommitInfo!]!
+  commits(per_page: Int!, page: Int!): CommitsInfoResponse!
 }
 
 input GetApiKeyUserInput {
