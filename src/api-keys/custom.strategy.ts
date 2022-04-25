@@ -10,11 +10,9 @@ export class CustomStrategy extends PassportStrategy(Strategy) {
   }
 
   async validate(req): Promise<any> {
-    console.log(`Headers: ${JSON.stringify(req.headers)}`);
     const user = await this.apiKeysService.getUserByApiKey(
       req.headers.authorization,
     );
-    console.log(`user: ${JSON.stringify(user)}`);
     if (!user) {
       throw new UnauthorizedException();
     }
