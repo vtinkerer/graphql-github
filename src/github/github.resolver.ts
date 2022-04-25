@@ -1,11 +1,10 @@
 import { Resolver, Query, Args, Int } from '@nestjs/graphql';
 import { GithubService } from './github.service';
-import { Github } from './github.entity';
 import { UseGuards } from '@nestjs/common';
 import { ApiKeyAuthGuard } from '../api-keys/api-key-auth.guard';
 import { CommitInfo } from './dto/commit-info';
 
-@Resolver(() => Github)
+@Resolver()
 export class GithubResolver {
   constructor(private readonly githubService: GithubService) {}
 
