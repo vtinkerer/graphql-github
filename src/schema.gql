@@ -1,0 +1,55 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type ApiKey {
+  username: String!
+  apiKey: String!
+}
+
+type User {
+  username: String!
+}
+
+type RegisterResponse {
+  user: User!
+}
+
+type CommiterInfo {
+  login: String!
+  id: Int!
+  avatar_url: String!
+}
+
+type CommitInfo {
+  sha: String!
+  message: String!
+  commiterInfo: CommiterInfo
+  date: String!
+  url: String!
+}
+
+type HelloWorldResponse {
+  message: String!
+}
+
+type Query {
+  helloWorld: HelloWorldResponse!
+  authData(getApiKeyUserInput: GetApiKeyUserInput!): ApiKey!
+  commits(per_page: Int!, page: Int!): [CommitInfo!]!
+}
+
+input GetApiKeyUserInput {
+  username: String!
+  password: String!
+}
+
+type Mutation {
+  rotateApiKey: ApiKey!
+  register(registerUserInput: RegisterUserInput!): RegisterResponse!
+}
+
+input RegisterUserInput {
+  username: String!
+  password: String!
+}
