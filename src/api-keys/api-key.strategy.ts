@@ -4,7 +4,7 @@ import { Injectable, UnauthorizedException } from '@nestjs/common';
 import { ApiKeysService } from './api-keys.service';
 
 @Injectable()
-export class CustomStrategy extends PassportStrategy(Strategy) {
+export class ApiKeyStrategy extends PassportStrategy(Strategy) {
   constructor(private apiKeysService: ApiKeysService) {
     super();
   }

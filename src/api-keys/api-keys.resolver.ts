@@ -4,7 +4,7 @@ import { LocalAuthGuard } from '../auth/local-auth.guard';
 import { ContextUtils } from '../utils/context.utils';
 import { ApiKey } from './api-key.entity';
 import { ApiKeysService } from './api-keys.service';
-import { ApiKeyAuthGuard } from './custom-auth.guard';
+import { ApiKeyAuthGuard } from './api-key-auth.guard';
 import { GetApiKeyUserInput } from './dto/get-api-key-user-input';
 
 @Resolver(() => ApiKey)
@@ -23,7 +23,6 @@ export class ApiKeysResolver {
   @Mutation(() => ApiKey)
   @UseGuards(ApiKeyAuthGuard)
   async rotateApiKey(@Context() context) {
-    console.log(Object.keys(context));
     const username = ContextUtils.extractUsernameFromRequest(context);
     return this.apiKeysService.rotateApiKey(username);
   }
