@@ -30,7 +30,7 @@ type CommitInfo {
 }
 
 type CommitsInfoResponse {
-  commits: [CommitInfo!]!
+  data: [CommitInfo!]!
   hasNext: Boolean!
 }
 

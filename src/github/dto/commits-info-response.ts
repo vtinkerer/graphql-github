@@ -4,7 +4,7 @@ import { CommitInfo } from './commit-info';
 @ObjectType()
 export class CommitsInfoResponse {
   @Field(() => [CommitInfo])
-  commits: CommitInfo[];
+  data: CommitInfo[];
 
   @Field()
   hasNext: boolean;

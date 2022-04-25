@@ -29,7 +29,7 @@ export class GithubService {
       .then((response) => GithubUtils.extractInfoFromCommits(response.data));
 
     return {
-      commits,
+      data: commits,
       hasNext,
     };
   }
